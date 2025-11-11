@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+<h1>Dashboard</h1> 
+    {% if is_granted('ROLE_ADMIN') %}
+        <h1>You are logged in as Admin. You have full access.</h1>
+    {% elseif is_granted('ROLE_USER') %}
+        <h1>You are logged in as Regular User. Limited access granted.</h1>
+    {% else %}
+        <h1>Access denied.</h1>
+    {% endif %}
+{% endblock %}
